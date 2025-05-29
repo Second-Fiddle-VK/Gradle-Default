@@ -1,0 +1,25 @@
+pipeline{
+  agent any
+  stages{
+    stage('Checkout'){
+      steps{
+        git "https://github.com/Second-Fiddle-VK/Gradle-Default"
+      }
+    }
+    stage('Build'){
+      steps{
+        sh 'gradle build'
+      }
+    }
+    stage('Test'){
+      steps{
+        sh 'gradle test'
+    }
+    }
+    stage('Run'){
+      steps{
+        sh 'gradle run'
+      }
+  }
+}
+
